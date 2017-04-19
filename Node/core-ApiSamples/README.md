@@ -14,7 +14,9 @@ The demo shows how to create a:
 11. Sign in card
 12. Typing indicator
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/ Node/core-ApiSamples)
+[Deploy Node/core-ApiSamples]: https://azuredeploy.net?repository=https://github.com/microsoft/BotBuilder-Samples/tree/master/Node/core-ApiSamples
+[Deploy Button]: https://azuredeploy.net/deploybutton.png
+[![Deploy to Azure][Deploy Button]][Deploy Node/core-ApiSamples]
 
 ### Prerequisites
 The minimum prerequisites to run this sample are:
@@ -23,7 +25,44 @@ The minimum prerequisites to run this sample are:
 3. **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
 
 ### Code Highlights
+With the bot builder sdk, it is very easy to create replies (text messages or rich cards) with very few lines of code. Here is an example of how to create a hero card:
+```
+var message = new global.botBuilder.Message(session);
+var heroCard = new global.botBuilder.HeroCard(session)
+            .title("This is a sample Hero Card.")
+            .subtitle("This is a sample subtitle for the Hero Card. Tapping on the hero card will open a url.")
+            .text("This shows rich text supported by Hero Card like <b><u>Formatted Text</u></b> and :) smileys")
+            .images([
+                global.botBuilder.CardImage.create(session, "https://docs.botframework.com/images/demo_bot_image.png")
+            ])
+            .buttons([
+                global.botBuilder.CardAction.imBack(session, "[internal] The payload of this button goes back to the bot as a next message and is visible in the chat stream.", "IM Back"),
+                global.botBuilder.CardAction.postBack(session, "[internal] The payload of this button goes back to the bot as a next message and is not visible in the chat stream.", "Post Back"),
+                global.botBuilder.CardAction.openUrl(session, "https://bing.com", "OpenUrl")
+            ])
+            .tap(global.botBuilder.CardAction.openUrl(session, "https://bing.com"));
+
+message.addAttachment(heroCard);
+session.send(message);
+```
+
+You can even show the typing indicator while executing long running tasks to give the impression to the user that the bot is thinking:
+```
+function (session)
+{
+  // Send a typing indicator to the user to show that the bot is responding with something.
+  session.sendTyping();
+  session.endDialog();
+}
+```
+
 ### Outcome
+You will see the following result in the Bot Framework Emulator when opening and running the sample.
+![Sample Outcome](images/emulator.png)
+
+While running on skype, the bot will look like this:
+![Sample Outcome](images/skype.png)
+
 ### More Information
 To get more information about how to get started in Bot Builder for Node, please review the following resources:
 1. [Bot Builder for Node.js Reference](https://docs.botframework.com/en-us/node/builder/overview/#navtitle)
