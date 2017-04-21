@@ -1,6 +1,6 @@
 ﻿# Api samples for NodeJS based bot
 This is a sample bot created using bot framework apis. It's designed to showcase what's possible on Skype using the BotBuilder SDK. 
-The demo shows how to create a:
+The demo shows how to create:
 1. Welcome message in 1:1 and group chat
 2. Rich text message (text formatting, emoticons)
 3. Hero card - all text blocks and buttons
@@ -57,10 +57,13 @@ function (session)
 ```
 
 ### Outcome
-You will see the following result in the Bot Framework Emulator when opening and running the sample.
-![Sample Outcome](images/emulator.png)
+You will see the following result in the Bot Framework Emulator when opening and running the sample:
+
+![Sample Outcome](images/Emulator.png)
+
 
 While running on skype, the bot will look like this:
+
 ![Sample Outcome](images/skype.png)
 
 ### More Information
