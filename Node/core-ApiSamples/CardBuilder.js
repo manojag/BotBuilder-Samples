@@ -95,8 +95,7 @@ var videoCardBuilder =
             .image(global.botBuilder.CardImage.create(session, "https://docs.botframework.com/images/demo_bot_image.png"))
             .media([
                 {
-                    url: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
-                    profile: 'sd'
+                    url: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4'
                 }
             ])
             .autoloop(true)
