@@ -71,7 +71,9 @@ var audioCardBuilder =
                     .text("This is a sample text description of the audio file.")
                     .image(global.botBuilder.CardImage.create(session, "https://docs.botframework.com/images/demo_bot_image.png"))
                     .media([
-                        { url: 'https://archive.org/download/testmp3testfile/mpthreetest.mp3' }
+                        {
+                            url: 'https://archive.org/download/testmp3testfile/mpthreetest.mp3'
+                        }
                     ])
                     .autoloop(true)
                     .autostart(false)
@@ -95,7 +97,7 @@ var videoCardBuilder =
             .image(global.botBuilder.CardImage.create(session, "https://docs.botframework.com/images/demo_bot_image.png"))
             .media([
                 {
-                    url: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4'
+                    url: 'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4'
                 }
             ])
             .autoloop(true)
